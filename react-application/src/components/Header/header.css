@@ -4,7 +4,7 @@
   --light-grayish-blue: hsl(223, 64%, 98%);
   --grayish-blue: hsl(220, 14%, 75%);
   --white: hsl(0, 0%, 100%);
-  --black: hsl(0, 0%, 100%);
+  --black: hsl(0, 0%, 0%);
   --orange: #ff7d1b;
   --lightbox-bg: 0.75;
 }
@@ -36,7 +36,7 @@
   border: 2px solid var(--orange);
 }
 
-nav > div {
+nav.visible-nav > div {
   height: 102%;
   color: var(--grayish-blue);
   display: flex;
@@ -46,8 +46,38 @@ nav > div {
   transition: all 400ms;
 }
 
-nav > div:hover {
+nav.visible-nav > div:hover {
   cursor: pointer;
   color: var(--very-dark-blue);
   border-bottom: 5px solid var(--orange);
+}
+
+.dark-cover {
+  background-color: var(--black);
+  opacity: 0.75;
+}
+
+.x-icon {
+  color: var(--dark-grayish-blue);
+}
+
+@keyframes showup {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 15rem;
+  }
+}
+
+.hidden-nav {
+  background-color: var(--white);
+  animation-name: showup;
+  animation-duration: 600ms;
+}
+
+nav.hidden-nav__content > div {
+  font-weight: bold;
+  color: var(--very-dark-blue);
+  padding-left: 5px;
 }
