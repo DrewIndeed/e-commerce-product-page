@@ -42,3 +42,8 @@
 .add-to-cart:hover {
   opacity: 0.75;
 }
+
+.next-icon-container,
+.previous-icon-container {
+  top: 45.5%;
+}

@@ -19,12 +19,28 @@ const InfoShowcase = () => {
     <div className="grid grid-cols-1 md:grid-cols-2 max-w-6xl mx-auto">
       {/* images */}
       <div className="flex h-80 overflow-hidden flex-col items-center justify-center md:h-max md:p-10 lg:p-16">
-        <div>
+        <div className="relative">
           <img
             className="md:rounded-xl"
             src={images.Product1}
             alt="product-main-preview"
           />
+
+          <div className="next-icon-container md:hidden cursor-pointer absolute right-5 w-10 h-10 bg-white rounded-full flex justify-center items-center">
+            <img
+              className="w-3 h-3"
+              src={images.NextIcon}
+              alt="next-of-gallery"
+            />
+          </div>
+
+          <div className="previous-icon-container md:hidden cursor-pointer absolute left-5 w-10 h-10 bg-white rounded-full flex justify-center items-center pr-1">
+            <img
+              className="w-3 h-3"
+              src={images.PreviousIcon}
+              alt="previous-of-gallery"
+            />
+          </div>
         </div>
 
         {/* thumbnails */}
