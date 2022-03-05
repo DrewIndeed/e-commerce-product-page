@@ -19,10 +19,20 @@
 }
 
 .cart-icon {
+  color: var(--grayish-blue);
+  transition: all 400ms;
+}
+
+.cart-icon:hover {
   color: var(--dark-grayish-blue);
 }
 
 .profile-picture {
+  border: 2px solid transparent;
+  transition: all 400ms;
+}
+
+.profile-picture:hover {
   border: 2px solid var(--orange);
 }
 

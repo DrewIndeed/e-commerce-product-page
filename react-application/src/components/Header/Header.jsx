@@ -29,7 +29,7 @@ const Header = () => {
       <div className="flex items-center justify-center pt-1 space-x-5 lg:space-x-9 pr-3">
         <ShoppingCartIcon className="cart-icon w-6 cursor-pointer" />
         <img
-          className="profile-picture cursor-pointer w-7 h-7 object-cover rounded-full lg:w-11 lg:h-11"
+          className="profile-picture cursor-pointer w-8 h-8 object-cover rounded-full lg:w-12 lg:h-12"
           src="https://i.imgur.com/egkiPN4.jpg"
           alt="user-face"
         />
