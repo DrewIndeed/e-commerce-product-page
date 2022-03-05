@@ -1,10 +1,20 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './infoShowcase.css';
 import { images } from '../../assets/index.js';
 import { ShoppingCartIcon } from '@heroicons/react/outline';
 import { PlusIcon, MinusIcon } from '@heroicons/react/solid';
 
 const InfoShowcase = () => {
+  const [count, setCount] = useState(0);
+
+  const handleIncre = () => {
+    setCount(count + 1);
+  };
+
+  const handleDecre = () => {
+    if (count > 0) setCount(count - 1);
+  };
+
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 max-w-6xl mx-auto">
       {/* images */}
@@ -67,11 +77,17 @@ const InfoShowcase = () => {
 
         <div className="flex flex-col lg:flex-row w-full lg:space-x-5">
           <div className="bg-gray-50 lg:flex-1 items-center py-4 px-5 mb-5 lg:mb-0 rounded-xl flex justify-between">
-            <MinusIcon className="cursor-pointer plus-icon w-5 h-5" />
+            <MinusIcon
+              onClick={() => handleDecre()}
+              className="cursor-pointer plus-icon w-5 h-5"
+            />
             <h3 id="quanity" className="font-bold">
-              0
+              {count}
             </h3>
-            <PlusIcon className="cursor-pointer minus-icon w-5 h-5" />
+            <PlusIcon
+              onClick={() => handleIncre()}
+              className="cursor-pointer minus-icon w-5 h-5"
+            />
           </div>
           <div className="add-to-cart cursor-pointer lg:grow flex items-center rounded-xl py-4 lg:py-0 justify-center space-x-5">
             <ShoppingCartIcon className="w-5 h-5" />
