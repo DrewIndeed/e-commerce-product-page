@@ -21,8 +21,4 @@
   font-family: 'Comfortaa', cursive;
   font-family: 'Dancing Script', cursive;
   font-family: 'Kumbh Sans', sans-serif;
-  user-select: none;
-  -webkit-user-select: none; /* Chrome/Safari */
-  -moz-user-select: none; /* Firefox */
-  -ms-user-select: none; /* IE10+ */
 }

@@ -37,6 +37,10 @@
   color: var(--white);
   box-shadow: 0 10px 10px 5px var(--light-orange);
   transition: all 400ms;
+  user-select: none;
+  -webkit-user-select: none; /* Chrome/Safari */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* IE10+ */
 }
 
 .add-to-cart:hover {
