@@ -1,6 +1,8 @@
 import React from 'react';
 import './infoShowcase.css';
 import { images } from '../../assets/index.js';
+import { ShoppingCartIcon } from '@heroicons/react/outline';
+import { PlusIcon, MinusIcon } from '@heroicons/react/solid';
 
 const InfoShowcase = () => {
   return (
@@ -52,7 +54,7 @@ const InfoShowcase = () => {
           the weather can offer.
         </h3>
 
-        <div className="flex lg:flex-col justify-between">
+        <div className="flex lg:flex-col justify-between mb-5">
           <div className="flex items-center">
             <h3 className="current-price font-bold text-3xl mr-4">$125.00</h3>
             <div className="off-percent rounded flex items-center justify-center h-6 w-12">
@@ -61,6 +63,20 @@ const InfoShowcase = () => {
           </div>
 
           <h4 className="off-price font-bold text-lg pt-1">$250.00</h4>
+        </div>
+
+        <div className="flex flex-col lg:flex-row w-full lg:space-x-5">
+          <div className="bg-gray-50 lg:flex-1 items-center py-4 px-5 mb-5 lg:mb-0 rounded-xl flex justify-between">
+            <MinusIcon className="cursor-pointer plus-icon w-5 h-5" />
+            <h3 id="quanity" className="font-bold">
+              0
+            </h3>
+            <PlusIcon className="cursor-pointer minus-icon w-5 h-5" />
+          </div>
+          <div className="add-to-cart cursor-pointer lg:grow flex items-center rounded-xl py-4 lg:py-0 justify-center space-x-5">
+            <ShoppingCartIcon className="w-5 h-5" />
+            <h3 className="font-bold">Add to cart</h3>
+          </div>
         </div>
       </div>
     </div>
