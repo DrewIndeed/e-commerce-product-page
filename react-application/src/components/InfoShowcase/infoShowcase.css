@@ -14,7 +14,16 @@
   background-color: var(--light-orange);
 }
 
-.thumbnails > img {
+.products,
+.prices,
+.quantity-container {
+  user-select: none;
+  -webkit-user-select: none; /* Chrome/Safari */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* IE10+ */
+}
+
+.thumbnails {
   transition: all 400ms;
 }
 
@@ -50,4 +59,12 @@
 .next-icon-container,
 .previous-icon-container {
   top: 45.5%;
+}
+
+.current-thumbnail-content {
+  opacity: 0.2;
+}
+
+.current-thumbnail-container {
+  border: 2px solid var(--orange);
 }

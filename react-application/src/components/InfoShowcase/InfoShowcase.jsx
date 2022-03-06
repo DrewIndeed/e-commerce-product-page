@@ -6,6 +6,27 @@ import { PlusIcon, MinusIcon } from '@heroicons/react/solid';
 
 const InfoShowcase = () => {
   const [count, setCount] = useState(0);
+  const [imageIndex, setImageIndex] = useState(0);
+  const [thumbnailClickedNum, setThumbnailClickedNum] = useState(0);
+
+  const {
+    Product1,
+    Product2,
+    Product3,
+    Product4,
+    Product1Thumbnail,
+    Product2Thumbnail,
+    Product3Thumbnail,
+    Product4Thumbnail,
+  } = images;
+
+  const mainProducts = [Product1, Product2, Product3, Product4];
+  const thumbnailProducts = [
+    Product1Thumbnail,
+    Product2Thumbnail,
+    Product3Thumbnail,
+    Product4Thumbnail,
+  ];
 
   const handleIncre = () => {
     setCount(count + 1);
@@ -15,18 +36,55 @@ const InfoShowcase = () => {
     if (count > 0) setCount(count - 1);
   };
 
+  const handleIncreImageIndex = () => {
+    if (imageIndex < mainProducts.length - 1) setImageIndex(imageIndex + 1);
+    else setImageIndex(0);
+  };
+
+  const handleDecreImageIndex = () => {
+    if (imageIndex > 0) setImageIndex(imageIndex - 1);
+    else setImageIndex(mainProducts.length - 1);
+  };
+
+  const imagesDomComponents = [];
+  for (let i = 0; i < mainProducts.length; i++) {
+    imagesDomComponents.push(
+      <div
+        key={`thumb-${i}`}
+        className={`overflow-hidden cursor-pointer rounded-xl lg:w-20 w-16 ${
+          i === thumbnailClickedNum && 'current-thumbnail-container'
+        }`}
+      >
+        <img
+          onClick={() => {
+            setImageIndex(i);
+            setThumbnailClickedNum(i);
+          }}
+          className={`hover:opacity-70 thumbnails ${
+            i === thumbnailClickedNum && 'current-thumbnail-content'
+          }`}
+          src={thumbnailProducts[i]}
+          alt={`product-thumbnail-${i}`}
+        />
+      </div>
+    );
+  }
+
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 max-w-6xl mx-auto">
       {/* images */}
-      <div className="flex h-80 overflow-hidden flex-col items-center justify-center md:h-max md:p-10 lg:p-16">
+      <div className="products flex h-80 overflow-hidden flex-col items-center justify-center md:h-max md:p-10 lg:p-16">
         <div className="relative">
           <img
             className="md:rounded-xl"
-            src={images.Product1}
+            src={mainProducts[imageIndex]}
             alt="product-main-preview"
           />
 
-          <div className="next-icon-container md:hidden cursor-pointer absolute right-5 w-10 h-10 bg-white rounded-full flex justify-center items-center">
+          <div
+            onClick={() => handleIncreImageIndex()}
+            className="next-icon-container md:hidden cursor-pointer absolute right-5 w-10 h-10 bg-white rounded-full flex justify-center items-center"
+          >
             <img
               className="w-3 h-3"
               src={images.NextIcon}
@@ -34,7 +92,10 @@ const InfoShowcase = () => {
             />
           </div>
 
-          <div className="previous-icon-container md:hidden cursor-pointer absolute left-5 w-10 h-10 bg-white rounded-full flex justify-center items-center pr-1">
+          <div
+            onClick={() => handleDecreImageIndex()}
+            className="previous-icon-container md:hidden cursor-pointer absolute left-5 w-10 h-10 bg-white rounded-full flex justify-center items-center pr-1"
+          >
             <img
               className="w-3 h-3"
               src={images.PreviousIcon}
@@ -44,27 +105,8 @@ const InfoShowcase = () => {
         </div>
 
         {/* thumbnails */}
-        <div className="thumbnails hidden md:flex items-center justify-center space-x-9 lg:space-x-11 pt-10">
-          <img
-            className="hover:opacity-70 rounded-xl lg:w-20 w-16"
-            src={images.Product1Thumbnail}
-            alt="product thumbnail 1"
-          />
-          <img
-            className="hover:opacity-70 rounded-xl lg:w-20 w-16"
-            src={images.Product2Thumbnail}
-            alt="product thumbnail 2"
-          />
-          <img
-            className="hover:opacity-70 rounded-xl lg:w-20 w-16"
-            src={images.Product3Thumbnail}
-            alt="product thumbnail 3"
-          />
-          <img
-            className="hover:opacity-70 rounded-xl lg:w-20 w-16"
-            src={images.Product4Thumbnail}
-            alt="product thumbnail 4"
-          />
+        <div className="hidden md:flex items-center justify-center space-x-9 lg:space-x-11 pt-10">
+          {imagesDomComponents.map((item) => item)}
         </div>
       </div>
 
@@ -80,7 +122,7 @@ const InfoShowcase = () => {
           the weather can offer.
         </h3>
 
-        <div className="flex lg:flex-col justify-between mb-5">
+        <div className="prices flex lg:flex-col justify-between mb-5">
           <div className="flex items-center">
             <h3 className="current-price font-bold text-3xl mr-4">$125.00</h3>
             <div className="off-percent rounded flex items-center justify-center h-6 w-12">
@@ -91,7 +133,7 @@ const InfoShowcase = () => {
           <h4 className="off-price font-bold text-lg pt-1">$250.00</h4>
         </div>
 
-        <div className="flex flex-col lg:flex-row w-full lg:space-x-5">
+        <div className="quantity-container flex flex-col lg:flex-row w-full lg:space-x-5">
           <div className="bg-gray-50 lg:flex-1 items-center py-4 px-5 mb-5 lg:mb-0 rounded-xl flex justify-between">
             <MinusIcon
               onClick={() => handleDecre()}

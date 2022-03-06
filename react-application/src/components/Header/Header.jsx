@@ -16,6 +16,7 @@ const Header = () => {
     setIsMenuClicked(false);
     setIsCloseMenuClicked(true);
   };
+
   return (
     <>
       {isMenuClicked && !isCloseMenuClicked && (
@@ -48,7 +49,7 @@ const Header = () => {
           />
 
           {/* logo */}
-          <h1 className="main-logo pr-5 font-bold flex items-center justify-center lg:pl-3 lg:mr-3">
+          <h1 className="main-logo cursor-pointer pr-5 font-bold flex items-center justify-center lg:pl-3 lg:mr-3">
             sneakers
           </h1>
 
