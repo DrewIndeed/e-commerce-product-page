@@ -132,6 +132,14 @@ nav.hidden-nav__content > div {
   background-color: var(--orange);
 }
 
+.base-price, .item-title {
+  color: var(--dark-grayish-blue);
+}
+
+.trash-icon {
+  color: var(--grayish-blue);
+}
+
 @media only screen and (max-width: 640px) {
   .quantity-badge {
     background-color: var(--orange);

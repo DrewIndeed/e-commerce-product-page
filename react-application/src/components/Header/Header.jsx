@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import './header.css';
+import { images } from '../../assets/index.js';
 import { MenuIcon } from '@heroicons/react/solid';
-import { ShoppingCartIcon, XIcon } from '@heroicons/react/outline';
+import { ShoppingCartIcon, XIcon, TrashIcon } from '@heroicons/react/outline';
 
 const Header = ({ cartQuantity }) => {
   const [isMenuClicked, setIsMenuClicked] = useState(false);
@@ -102,7 +103,29 @@ const Header = ({ cartQuantity }) => {
                 </h3>
               ) : (
                 <div className="w-full h-full flex space-y-5 flex-col items-center justify-between">
-                  <div className="added-items-list"></div>
+                  <div className="added-items-list w-full">
+                    <div className="cart-item flex justify-center items-center">
+                      <div className="w-12 flex justify-center items-center">
+                        <img
+                          className="rounded"
+                          src={images.Product1}
+                          alt="cart-list-item-thumbnail"
+                        />
+                      </div>
+                      <div className="pl-4">
+                        <h3 className="item-title">
+                          Fall Limited Edition Sneaker
+                        </h3>
+                        <h3 className="font-md">
+                          <span className="base-price">$125.00 x 3</span>{' '}
+                          <span className="font-bold total-price">$375.00</span>
+                        </h3>
+                      </div>
+                      <div className="pl-3 flex justify-center items-center">
+                        <TrashIcon className="trash-icon w-5 cursor-pointer" />
+                      </div>
+                    </div>
+                  </div>
                   <div className="checkout transition-all duration-600 hover:opacity-75 w-full h-14 flex items-center justify-center rounded-xl text-white font-bold cursor-pointer">
                     Checkout
                   </div>
