@@ -41,11 +41,6 @@ nav.visible-nav > div:hover {
   border-bottom: 5px solid var(--orange);
 }
 
-.dark-cover {
-  background-color: var(--black);
-  opacity: 0.75;
-}
-
 .x-icon {
   color: var(--dark-grayish-blue);
 }
@@ -59,12 +54,26 @@ nav.visible-nav > div:hover {
   }
 }
 
+@keyframes showupslow {
+  0% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 0.75;
+  }
+}
+
+.dark-cover {
+  background-color: var(--black);
+  animation-name: showupslow;
+  animation-duration: 600ms;
+}
+
 .hidden-nav {
   background-color: var(--white);
   animation-name: showup;
   animation-duration: 600ms;
 }
-
 nav.hidden-nav__content > div {
   font-weight: bold;
   color: var(--very-dark-blue);

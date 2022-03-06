@@ -25,6 +25,20 @@
   -ms-user-select: none; /* IE10+ */
 }
 
+@keyframes showuppreview {
+  0% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.hidden-thumbnail-preview {
+  animation-name: showuppreview;
+  animation-duration: 600ms;
+}
+
 .thumbnails {
   transition: all 400ms;
 }
