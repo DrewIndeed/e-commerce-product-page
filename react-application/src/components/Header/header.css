@@ -63,9 +63,23 @@ nav.visible-nav > div:hover {
   }
 }
 
+@keyframes showupxslow {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
 .dark-cover {
   background-color: var(--black);
   animation-name: showupslow;
+  animation-duration: 600ms;
+}
+
+.hidden-nav__content {
+  animation-name: showupxslow;
   animation-duration: 600ms;
 }
 
