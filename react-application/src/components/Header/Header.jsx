@@ -18,11 +18,11 @@ const Header = () => {
   };
 
   return (
-    <>
+    <div className="z-30">
       {isMenuClicked && !isCloseMenuClicked && (
         <div className="hidden-nav-container">
-          <div className="dark-cover absolute z-50 w-full h-full" />
-          <div className="hidden-nav absolute z-50 w-60 h-full p-5">
+          <div className="dark-cover absolute z-30 w-full h-full" />
+          <div className="hidden-nav absolute z-30 w-60 h-full p-5">
             <div>
               <XIcon
                 onClick={() => handleCloseMenuClicked()}
@@ -73,7 +73,7 @@ const Header = () => {
           />
         </div>
       </div>
-    </>
+    </div>
   );
 };
 
