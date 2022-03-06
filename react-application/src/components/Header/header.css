@@ -78,3 +78,34 @@ nav.hidden-nav__content > div {
   -moz-user-select: none; /* Firefox */
   -ms-user-select: none; /* IE10+ */
 }
+
+.quantity-badge-content {
+  font-size: 10px;
+}
+
+@media screen and (max-width: 640px) {
+  .quantity-badge {
+    background-color: var(--orange);
+    right: 3.5rem;
+    top: 0.9rem;
+    padding: 0 0.475rem;
+  }
+}
+
+@media screen and (min-width: 641px) {
+  .quantity-badge {
+    background-color: var(--orange);
+    right: 3.5rem;
+    top: 0.9rem;
+    padding: 0 0.475rem;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .quantity-badge {
+    background-color: var(--orange);
+    right: 5.5rem;
+    top: 1.95rem;
+    padding: 0 0.475rem;
+  }
+}

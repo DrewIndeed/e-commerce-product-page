@@ -1,12 +1,15 @@
+import React, { useState } from 'react';
 import Header from './components/Header/Header';
 import InfoShowcase from './components/InfoShowcase/InfoShowcase';
 
 function App() {
+  const [cartQuantity, setCartQuantity] = useState(0);
+
   return (
     <div className="app h-screen">
-      <Header />
+      <Header cartQuantity={cartQuantity} />
 
-      <InfoShowcase />
+      <InfoShowcase setCartQuantity={setCartQuantity} />
     </div>
   );
 }

@@ -4,7 +4,7 @@ import { images } from '../../assets/index.js';
 import { ShoppingCartIcon, XIcon } from '@heroicons/react/outline';
 import { PlusIcon, MinusIcon } from '@heroicons/react/solid';
 
-const InfoShowcase = () => {
+const InfoShowcase = ({ setCartQuantity }) => {
   const [count, setCount] = useState(0);
   const [imageIndex, setImageIndex] = useState(0);
   const [thumbnailClickedNum, setThumbnailClickedNum] = useState(0);
@@ -212,7 +212,13 @@ const InfoShowcase = () => {
               className="cursor-pointer minus-icon w-5 h-5"
             />
           </div>
-          <div className="add-to-cart cursor-pointer lg:grow flex items-center rounded-xl py-4 lg:py-0 justify-center space-x-5">
+          <div
+            onClick={() => {
+              setCartQuantity(count);
+              setCount(0);
+            }}
+            className="add-to-cart cursor-pointer lg:grow flex items-center rounded-xl py-4 lg:py-0 justify-center space-x-5"
+          >
             <ShoppingCartIcon className="w-5 h-5" />
             <h3 className="font-bold">Add to cart</h3>
           </div>

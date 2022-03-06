@@ -3,7 +3,7 @@ import './header.css';
 import { MenuIcon } from '@heroicons/react/solid';
 import { ShoppingCartIcon, XIcon } from '@heroicons/react/outline';
 
-const Header = () => {
+const Header = ({ cartQuantity }) => {
   const [isMenuClicked, setIsMenuClicked] = useState(false);
   const [isCloseMenuClicked, setIsCloseMenuClicked] = useState(false);
 
@@ -64,7 +64,14 @@ const Header = () => {
         </div>
 
         {/* right area */}
-        <div className="flex items-center justify-center pt-1 space-x-5 lg:space-x-9 pr-3">
+        <div className="flex items-center justify-center pt-1 space-x-5 lg:space-x-9 pr-3 relative">
+          {cartQuantity !== 0 && (
+            <div className="quantity-badge absolute rounded-xl">
+              <h3 className="quantity-badge-content text-white font-bold">
+                {cartQuantity}
+              </h3>
+            </div>
+          )}
           <ShoppingCartIcon className="cart-icon w-6 cursor-pointer" />
           <img
             className="profile-picture cursor-pointer w-8 h-8 object-cover rounded-full lg:w-12 lg:h-12"
