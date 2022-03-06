@@ -1,13 +1,14 @@
 import React, { useState } from 'react';
 import './infoShowcase.css';
 import { images } from '../../assets/index.js';
-import { ShoppingCartIcon } from '@heroicons/react/outline';
+import { ShoppingCartIcon, XIcon } from '@heroicons/react/outline';
 import { PlusIcon, MinusIcon } from '@heroicons/react/solid';
 
 const InfoShowcase = () => {
   const [count, setCount] = useState(0);
   const [imageIndex, setImageIndex] = useState(0);
   const [thumbnailClickedNum, setThumbnailClickedNum] = useState(0);
+  const [isThumbnailClicked, setIsThumbnailClicked] = useState(false);
 
   const {
     Product1,
@@ -37,13 +38,27 @@ const InfoShowcase = () => {
   };
 
   const handleIncreImageIndex = () => {
-    if (imageIndex < mainProducts.length - 1) setImageIndex(imageIndex + 1);
-    else setImageIndex(0);
+    if (imageIndex < mainProducts.length - 1) {
+      setImageIndex(imageIndex + 1);
+      setThumbnailClickedNum(imageIndex + 1);
+    } else {
+      setImageIndex(0);
+      setThumbnailClickedNum(0);
+    }
   };
 
   const handleDecreImageIndex = () => {
-    if (imageIndex > 0) setImageIndex(imageIndex - 1);
-    else setImageIndex(mainProducts.length - 1);
+    if (imageIndex > 0) {
+      setImageIndex(imageIndex - 1);
+      setThumbnailClickedNum(imageIndex - 1);
+    } else {
+      setImageIndex(mainProducts.length - 1);
+      setThumbnailClickedNum(mainProducts.length - 1);
+    }
+  };
+
+  const handleIsThumbnailClicked = () => {
+    setIsThumbnailClicked(true);
   };
 
   const imagesDomComponents = [];
@@ -51,7 +66,7 @@ const InfoShowcase = () => {
     imagesDomComponents.push(
       <div
         key={`thumb-${i}`}
-        className={`overflow-hidden cursor-pointer rounded-xl lg:w-20 w-16 ${
+        className={`overflow-hidden bg-white cursor-pointer rounded-xl lg:w-20 w-16 ${
           i === thumbnailClickedNum && 'current-thumbnail-container'
         }`}
       >
@@ -59,6 +74,7 @@ const InfoShowcase = () => {
           onClick={() => {
             setImageIndex(i);
             setThumbnailClickedNum(i);
+            handleIsThumbnailClicked();
           }}
           className={`hover:opacity-70 thumbnails ${
             i === thumbnailClickedNum && 'current-thumbnail-content'
@@ -72,6 +88,55 @@ const InfoShowcase = () => {
 
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 max-w-6xl mx-auto">
+      {/* popup preview after clicking a thumbnail*/}
+      {isThumbnailClicked && (
+        <div className="hidden-thumbnail-preview hidden md:block absolute h-screen top-0 left-0 w-screen z-40">
+          <div className="dark-cover absolute h-screen top-0 left-0 w-screen z-40" />
+          <div className="absolute h-screen top-0 left-0 w-screen z-40 flex items-center justify-center">
+            <div className="w-90 h-90 flex flex-col items-center justify-center relative">
+              <XIcon
+                onClick={() => setIsThumbnailClicked(false)}
+                className="absolute x-icon-preview cursor-pointer w-7 h-7"
+              />
+
+              <img
+                className="rounded-xl"
+                src={mainProducts[imageIndex]}
+                alt="product-main-preview"
+                id="product-dark-preview"
+              />
+
+              <div
+                onClick={() => handleIncreImageIndex()}
+                className="next-icon-container-popup cursor-pointer absolute w-12 h-12 bg-white rounded-full flex justify-center items-center"
+              >
+                <img
+                  className="w-4 h-4"
+                  src={images.NextIcon}
+                  alt="next-of-gallery"
+                />
+              </div>
+
+              <div
+                onClick={() => handleDecreImageIndex()}
+                className="previous-icon-container-popup cursor-pointer absolute w-12 h-12 bg-white rounded-full flex justify-center items-center pr-1"
+              >
+                <img
+                  className="w-4 h-4"
+                  src={images.PreviousIcon}
+                  alt="previous-of-gallery"
+                />
+              </div>
+
+              {/* thumbnails */}
+              <div className="flex items-center justify-center space-x-11 lg:space-x-12 pt-10">
+                {imagesDomComponents.map((item) => item)}
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
       {/* images */}
       <div className="products flex h-80 overflow-hidden flex-col items-center justify-center md:h-max md:p-10 lg:p-16">
         <div className="relative">
