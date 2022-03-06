@@ -74,6 +74,7 @@ nav.visible-nav > div:hover {
 
 .dark-cover {
   background-color: var(--black);
+  z-index: 70;
   animation-name: showupslow;
   animation-duration: 600ms;
 }
@@ -85,6 +86,7 @@ nav.visible-nav > div:hover {
 
 .hidden-nav {
   background-color: var(--white);
+  z-index: 70;
   animation-name: showup;
   animation-duration: 600ms;
 }
@@ -106,29 +108,61 @@ nav.hidden-nav__content > div {
   font-size: 10px;
 }
 
-@media screen and (max-width: 640px) {
+.show-cart-details {
+  width: 20rem;
+  height: 15rem;
+  background: var(--white);
+  box-shadow: 0 0.75rem 1.75rem 0.25rem rgba(0, 0, 0, 0.2);
+}
+
+@media only screen and (max-width: 640px) {
   .quantity-badge {
     background-color: var(--orange);
     right: 3.5rem;
     top: 0.9rem;
     padding: 0 0.475rem;
   }
+
+  .show-cart-details {
+    z-index: 60;
+    top: 9%;
+    right: 2%;
+    width: 96%;
+    height: 32%;
+  }
 }
 
-@media screen and (min-width: 641px) {
+@media only screen and (min-width: 641px) {
   .quantity-badge {
     background-color: var(--orange);
     right: 3.5rem;
     top: 0.9rem;
     padding: 0 0.475rem;
   }
+
+  .show-cart-details {
+    z-index: 60;
+    top: 6.5%;
+    right: 7.5%;
+  }
 }
 
-@media screen and (min-width: 1024px) {
+@media only screen and (min-width: 768px) {
+  .show-cart-details {
+    right: 8%;
+    top: 6.5%;
+  }
+}
+
+@media only screen and (min-width: 1024px) {
   .quantity-badge {
     background-color: var(--orange);
     right: 5.5rem;
     top: 1.95rem;
     padding: 0 0.475rem;
+  }
+  .show-cart-details {
+    right: 8.5%;
+    top: 9.5%;
   }
 }

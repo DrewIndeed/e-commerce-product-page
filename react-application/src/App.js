@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Header from './components/Header/Header';
+import './app.css'
 import InfoShowcase from './components/InfoShowcase/InfoShowcase';
 
 function App() {

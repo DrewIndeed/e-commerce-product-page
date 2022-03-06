@@ -21,8 +21,8 @@ const Header = ({ cartQuantity }) => {
     <div className="z-30">
       {isMenuClicked && !isCloseMenuClicked && (
         <div className="hidden-nav-container">
-          <div className="dark-cover absolute z-30 w-full h-full" />
-          <div className="hidden-nav absolute z-30 w-60 h-full p-5">
+          <div className="dark-cover absolute w-full h-full" />
+          <div className="hidden-nav absolute w-60 h-full p-5">
             <div>
               <XIcon
                 onClick={() => handleCloseMenuClicked()}
@@ -79,6 +79,8 @@ const Header = ({ cartQuantity }) => {
             alt="user-face"
           />
         </div>
+
+        <div className="show-cart-details rounded-xl absolute"></div>
       </div>
     </div>
   );
