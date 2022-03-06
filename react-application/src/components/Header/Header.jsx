@@ -89,9 +89,24 @@ const Header = ({ cartQuantity }) => {
             <div className="border-b-2 py-4 px-5">
               <h2 className="font-bold">Cart</h2>
             </div>
-            <div className="flex-1 flex items-center justify-center">
-              {cartQuantity === 0 && (
-                <h3 className="font-bold empty-msg">Your cart is empty.</h3>
+            <div
+              className={`flex-1 flex overflow-y-scroll ${
+                cartQuantity === 0
+                  ? 'justify-center'
+                  : 'flex-col justify-between'
+              } items-center p-6`}
+            >
+              {cartQuantity === 0 ? (
+                <h3 className="font-bold empty-msg my-14">
+                  Your cart is empty.
+                </h3>
+              ) : (
+                <div className="w-full h-full flex space-y-5 flex-col items-center justify-between">
+                  <div className="added-items-list"></div>
+                  <div className="checkout transition-all duration-600 hover:opacity-75 w-full h-14 flex items-center justify-center rounded-xl text-white font-bold cursor-pointer">
+                    Checkout
+                  </div>
+                </div>
               )}
             </div>
           </div>

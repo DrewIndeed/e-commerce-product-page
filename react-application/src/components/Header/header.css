@@ -2,6 +2,11 @@
   color: var(--dark-grayish-blue);
 }
 
+::-webkit-scrollbar {
+  width: 0; /* Remove scrollbar space */
+  background: transparent; /* Optional: just make scrollbar invisible */
+}
+
 .main-logo {
   font-size: 2rem;
   color: var(--very-dark-blue);
@@ -111,8 +116,8 @@ nav.hidden-nav__content > div {
 }
 
 .show-cart-details {
-  width: 20rem;
-  height: 15rem;
+  width: 22rem;
+  max-height: 15rem;
   background: var(--white);
   box-shadow: 0 0.75rem 1.75rem 0.25rem rgba(0, 0, 0, 0.2);
   animation-name: showupxslow;
@@ -121,6 +126,10 @@ nav.hidden-nav__content > div {
 
 .empty-msg {
   color: var(--dark-grayish-blue);
+}
+
+.checkout {
+  background-color: var(--orange);
 }
 
 @media only screen and (max-width: 640px) {
@@ -173,4 +182,4 @@ nav.hidden-nav__content > div {
     right: 8.5%;
     top: 9.5%;
   }
-}
+} ;
