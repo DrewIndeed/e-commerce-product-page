@@ -6,6 +6,7 @@ import { ShoppingCartIcon, XIcon } from '@heroicons/react/outline';
 const Header = ({ cartQuantity }) => {
   const [isMenuClicked, setIsMenuClicked] = useState(false);
   const [isCloseMenuClicked, setIsCloseMenuClicked] = useState(false);
+  const [isCartListClicked, setIsCartListClicked] = useState(false);
 
   const handleMenuClicked = () => {
     setIsMenuClicked(true);
@@ -64,7 +65,7 @@ const Header = ({ cartQuantity }) => {
         </div>
 
         {/* right area */}
-        <div className="flex items-center justify-center pt-1 space-x-5 lg:space-x-9 pr-3 relative">
+        <div className="right-area flex items-center justify-center pt-1 space-x-5 lg:space-x-9 pr-3 relative">
           {cartQuantity !== 0 && (
             <div className="quantity-badge absolute rounded-xl">
               <h3 className="quantity-badge-content text-white font-bold">
@@ -72,7 +73,10 @@ const Header = ({ cartQuantity }) => {
               </h3>
             </div>
           )}
-          <ShoppingCartIcon className="cart-icon w-6 cursor-pointer" />
+          <ShoppingCartIcon
+            onClick={() => setIsCartListClicked(!isCartListClicked)}
+            className="cart-icon w-6 cursor-pointer"
+          />
           <img
             className="profile-picture cursor-pointer w-8 h-8 object-cover rounded-full lg:w-12 lg:h-12"
             src="https://i.imgur.com/egkiPN4.jpg"
@@ -80,7 +84,18 @@ const Header = ({ cartQuantity }) => {
           />
         </div>
 
-        <div className="show-cart-details rounded-xl absolute"></div>
+        {isCartListClicked && (
+          <div className="show-cart-details rounded-xl absolute flex flex-col">
+            <div className="border-b-2 py-4 px-5">
+              <h2 className="font-bold">Cart</h2>
+            </div>
+            <div className="flex-1 flex items-center justify-center">
+              {cartQuantity === 0 && (
+                <h3 className="font-bold empty-msg">Your cart is empty.</h3>
+              )}
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );

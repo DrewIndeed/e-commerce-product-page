@@ -97,7 +97,9 @@ nav.hidden-nav__content > div {
 }
 
 .main-logo,
-.visible-nav > div {
+.visible-nav > div,
+.show-cart-details,
+.right-area {
   user-select: none;
   -webkit-user-select: none; /* Chrome/Safari */
   -moz-user-select: none; /* Firefox */
@@ -113,6 +115,12 @@ nav.hidden-nav__content > div {
   height: 15rem;
   background: var(--white);
   box-shadow: 0 0.75rem 1.75rem 0.25rem rgba(0, 0, 0, 0.2);
+  animation-name: showupxslow;
+  animation-duration: 400ms;
+}
+
+.empty-msg {
+  color: var(--dark-grayish-blue);
 }
 
 @media only screen and (max-width: 640px) {
