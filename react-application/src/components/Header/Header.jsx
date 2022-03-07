@@ -104,7 +104,7 @@ const Header = ({ cartQuantity, cartList }) => {
                   Your cart is empty.
                 </h3>
               ) : (
-                <div className="w-full h-full flex space-y-5 flex-col items-center justify-between">
+                <div className="w-full flex space-y-5 flex-col items-center justify-between">
                   <div className="added-items-list w-full">
                     {/* populate cart items here */}
                     {cartList &&
