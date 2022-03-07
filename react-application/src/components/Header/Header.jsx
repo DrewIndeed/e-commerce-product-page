@@ -4,7 +4,7 @@ import { images } from '../../assets/index.js';
 import { MenuIcon } from '@heroicons/react/solid';
 import { ShoppingCartIcon, XIcon, TrashIcon } from '@heroicons/react/outline';
 
-const Header = ({ cartQuantity, cartList }) => {
+const Header = ({ cartQuantity, cartList, setCartList }) => {
   const [isMenuClicked, setIsMenuClicked] = useState(false);
   const [isCloseMenuClicked, setIsCloseMenuClicked] = useState(false);
   const [isCartListClicked, setIsCartListClicked] = useState(false);
@@ -18,8 +18,6 @@ const Header = ({ cartQuantity, cartList }) => {
     setIsMenuClicked(false);
     setIsCloseMenuClicked(true);
   };
-
-  console.log(cartList);
 
   return (
     <div className="z-30">
@@ -94,12 +92,12 @@ const Header = ({ cartQuantity, cartList }) => {
             </div>
             <div
               className={`flex-1 flex overflow-y-scroll ${
-                cartQuantity === 0
+                cartList.length === 0
                   ? 'justify-center'
                   : 'flex-col justify-between'
               } items-center p-6`}
             >
-              {cartQuantity === 0 ? (
+              {cartList.length === 0 ? (
                 <h3 className="font-bold empty-msg my-14">
                   Your cart is empty.
                 </h3>
@@ -108,7 +106,7 @@ const Header = ({ cartQuantity, cartList }) => {
                   <div className="added-items-list w-full">
                     {/* populate cart items here */}
                     {cartList &&
-                      cartList.map((item, index) => (
+                      cartList.map((item, index, arr) => (
                         <div
                           key={index}
                           className="cart-item mt-3 flex justify-center items-center"
@@ -119,7 +117,7 @@ const Header = ({ cartQuantity, cartList }) => {
                               src={images.Product1}
                               alt="cart-list-item-thumbnail"
                             />
-                          </div>
+                          </div> 
 
                           <div className="pl-2">
                             <h3 className="item-title">{item.productName}</h3>
@@ -134,7 +132,12 @@ const Header = ({ cartQuantity, cartList }) => {
                           </div>
 
                           <div className="pl-3 flex justify-center items-center">
-                            <TrashIcon className="trash-icon w-5 cursor-pointer" />
+                            <TrashIcon
+                              onClick={() => {
+                                arr.splice(index, 1);
+                              }}
+                              className="trash-icon w-5 cursor-pointer"
+                            />
                           </div>
                         </div>
                       ))}

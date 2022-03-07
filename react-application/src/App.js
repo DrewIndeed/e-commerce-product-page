@@ -9,7 +9,7 @@ function App() {
 
   return (
     <div className="app h-screen">
-      <Header cartList={cartList} cartQuantity={cartQuantity} />
+      <Header cartList={cartList} setCartList={setCartList} cartQuantity={cartQuantity} />
 
       <InfoShowcase
         setCartList={setCartList}
