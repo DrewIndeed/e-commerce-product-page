@@ -118,6 +118,7 @@ nav.hidden-nav__content > div {
 .show-cart-details {
   width: 22rem;
   max-height: 15rem;
+  z-index: 40;
   background: var(--white);
   box-shadow: 0 0.75rem 1.75rem 0.25rem rgba(0, 0, 0, 0.2);
   animation-name: showupxslow;
@@ -132,7 +133,8 @@ nav.hidden-nav__content > div {
   background-color: var(--orange);
 }
 
-.base-price, .item-title {
+.base-price,
+.item-title {
   color: var(--dark-grayish-blue);
 }
 
@@ -149,7 +151,6 @@ nav.hidden-nav__content > div {
   }
 
   .show-cart-details {
-    z-index: 50;
     top: 9%;
     right: 2%;
     width: 96%;
@@ -166,7 +167,6 @@ nav.hidden-nav__content > div {
   }
 
   .show-cart-details {
-    z-index: 50;
     top: 6.5%;
     right: 7.5%;
   }
@@ -174,7 +174,6 @@ nav.hidden-nav__content > div {
 
 @media only screen and (min-width: 768px) {
   .show-cart-details {
-    z-index: 50;
     right: 8%;
     top: 6.5%;
   }
@@ -188,7 +187,6 @@ nav.hidden-nav__content > div {
     padding: 0 0.475rem;
   }
   .show-cart-details {
-    z-index: 50;
     right: 8.5%;
     top: 9.5%;
   }
