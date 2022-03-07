@@ -35,6 +35,7 @@
 }
 
 .hidden-thumbnail-preview {
+  z-index: 60;
   animation-name: showuppreview;
   animation-duration: 600ms;
 }
