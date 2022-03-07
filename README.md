@@ -10,6 +10,17 @@ Thanks for checking out this front-end coding challenge.
 
 **To do this challenge, you need a good understanding of HTML, CSS and JavaScript.**
 
+## Current Status (Added by DrewIndeed)
+
+Completed with ReactJS at Monday, March 7th. 2022 at 11:30 AM ✅
+
+## Flaws Following Completion (Added by DrewIndeed)
+
+- Have not resolved | implemented reverse animation of elements with animation.
+- Have not resolved xlarge cases of device's screen. The cart list's pop-up position is the one affected the most. Otherwise, the completion is completely responsive.
+- Cart data exchange between Components is not effective, just understandble -> hard to fix and maintain
+- Have not component-ized the page effectively, just simple component-ization.
+
 ## The challenge
 
 Your challenge is to build out this e-commerce product page and get it looking as close to the design as possible.
@@ -78,12 +89,12 @@ Remember, if you're looking for feedback on your solution, be sure to ask questi
 
 There are multiple places you can share your solution:
 
-1. Share your solution page in the **#finished-projects** channel of the [Slack community](https://www.frontendmentor.io/slack). 
+1. Share your solution page in the **#finished-projects** channel of the [Slack community](https://www.frontendmentor.io/slack).
 2. Tweet [@frontendmentor](https://twitter.com/frontendmentor) and mention **@frontendmentor**, including the repo and live URLs in the tweet. We'd love to take a look at what you've built and help share it around.
 3. Share your solution on other social channels like LinkedIn.
 4. Blog about your experience building your project. Writing about your workflow, technical choices, and talking through your code is a brilliant way to reinforce what you've learned. Great platforms to write on are [dev.to](https://dev.to/), [Hashnode](https://hashnode.com/), and [CodeNewbie](https://community.codenewbie.org/).
 
-We provide templates to help you share your solution once you've submitted it on the platform. Please do edit them and include specific questions when you're looking for feedback. 
+We provide templates to help you share your solution once you've submitted it on the platform. Please do edit them and include specific questions when you're looking for feedback.
 
 The more specific you are with your questions the more likely it is that another member of the community will give you feedback.
 

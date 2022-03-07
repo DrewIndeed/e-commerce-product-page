@@ -11,11 +11,9 @@ const InfoShowcase = ({
   cartList,
 }) => {
   const [count, setCount] = useState(0);
-  const [previousCount, setPreviousCount] = useState(0);
   const [imageIndex, setImageIndex] = useState(0);
   const [thumbnailClickedNum, setThumbnailClickedNum] = useState(0);
   const [isThumbnailClicked, setIsThumbnailClicked] = useState(false);
-  const [cartListTracking, setCartListTracking] = useState([]);
 
   const {
     Product1,
@@ -221,15 +219,14 @@ const InfoShowcase = ({
           </div>
           <div
             onClick={() => {
-              if (cartListTracking && count !== 0) {
-                const tempCartList = [...cartListTracking];
+              if (cartList && count !== 0) {
+                const tempCartList = [...cartList];
                 tempCartList.push({
                   productName: 'Fall Limited Edition Sneakers',
                   basePrice: 125,
                   count: count,
                   totalPrice: `$${125 * count}.00`,
                 });
-                setCartListTracking(tempCartList);
                 setCartList(tempCartList);
 
                 // setPreviousCount(previousCount + count);
