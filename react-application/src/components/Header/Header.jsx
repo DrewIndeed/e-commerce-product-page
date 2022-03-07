@@ -144,7 +144,13 @@ const Header = ({ cartQuantity, cartList, setCartList, setCartQuantity }) => {
                         </div>
                       ))}
                   </div>
-                  <div className="checkout transition-all duration-600 hover:opacity-75 w-full h-14 flex items-center justify-center rounded-xl text-white font-bold cursor-pointer">
+                  <div
+                    onClick={() => {
+                      setCartList([]);
+                      setCartQuantity(0);
+                    }}
+                    className="checkout transition-all duration-600 hover:opacity-75 w-full h-14 flex items-center justify-center rounded-xl text-white font-bold cursor-pointer"
+                  >
                     Checkout
                   </div>
                 </div>
