@@ -4,7 +4,7 @@ import { images } from '../../assets/index.js';
 import { MenuIcon } from '@heroicons/react/solid';
 import { ShoppingCartIcon, XIcon, TrashIcon } from '@heroicons/react/outline';
 
-const Header = ({ cartQuantity, cartList, setCartList }) => {
+const Header = ({ cartQuantity, cartList, setCartList, setCartQuantity }) => {
   const [isMenuClicked, setIsMenuClicked] = useState(false);
   const [isCloseMenuClicked, setIsCloseMenuClicked] = useState(false);
   const [isCartListClicked, setIsCartListClicked] = useState(false);
@@ -117,13 +117,13 @@ const Header = ({ cartQuantity, cartList, setCartList }) => {
                               src={images.Product1}
                               alt="cart-list-item-thumbnail"
                             />
-                          </div> 
+                          </div>
 
                           <div className="pl-2">
                             <h3 className="item-title">{item.productName}</h3>
                             <h3 className="font-md">
                               <span className="base-price">
-                                {item.basePrice}
+                                {`$${item.basePrice} x ${item.count}`}
                               </span>{' '}
                               <span className="font-bold total-price">
                                 {item.totalPrice}
@@ -134,7 +134,9 @@ const Header = ({ cartQuantity, cartList, setCartList }) => {
                           <div className="pl-3 flex justify-center items-center">
                             <TrashIcon
                               onClick={() => {
+                                setCartQuantity(cartQuantity - item.count);
                                 arr.splice(index, 1);
+                                setCartList(cartList);
                               }}
                               className="trash-icon w-5 cursor-pointer"
                             />

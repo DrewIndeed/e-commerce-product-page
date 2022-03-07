@@ -4,7 +4,12 @@ import { images } from '../../assets/index.js';
 import { ShoppingCartIcon, XIcon } from '@heroicons/react/outline';
 import { PlusIcon, MinusIcon } from '@heroicons/react/solid';
 
-const InfoShowcase = ({ setCartQuantity, setCartList }) => {
+const InfoShowcase = ({
+  setCartQuantity,
+  setCartList,
+  cartQuantity,
+  cartList,
+}) => {
   const [count, setCount] = useState(0);
   const [previousCount, setPreviousCount] = useState(0);
   const [imageIndex, setImageIndex] = useState(0);
@@ -220,14 +225,20 @@ const InfoShowcase = ({ setCartQuantity, setCartList }) => {
                 const tempCartList = [...cartListTracking];
                 tempCartList.push({
                   productName: 'Fall Limited Edition Sneakers',
-                  basePrice: `$125.00 x ${count}`,
+                  basePrice: 125,
+                  count: count,
                   totalPrice: `$${125 * count}.00`,
                 });
                 setCartListTracking(tempCartList);
                 setCartList(tempCartList);
+
+                // setPreviousCount(previousCount + count);
+                const temp = tempCartList.reduce(
+                  (accum, current) => accum + current.count,
+                  0
+                );
+                setCartQuantity(temp);
               }
-              setPreviousCount(previousCount + count);
-              setCartQuantity(previousCount + count);
               setCount(0);
             }}
             className="add-to-cart cursor-pointer lg:grow flex items-center rounded-xl py-4 lg:py-0 justify-center space-x-5"
